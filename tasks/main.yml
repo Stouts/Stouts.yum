@@ -1,0 +1,5 @@
+---
+
+- include: yum.yml
+  when: yum_enabled
+  tags: [yum]

@@ -1,0 +1,7 @@
+---
+
+yum_enabled: yes
+yum_packages: []
+yum_repos: {}
+yum_services: []
+yum_update: no

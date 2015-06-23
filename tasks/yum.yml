@@ -1,0 +1,17 @@
+---
+
+- name: yum | Update yum
+  yum: name=* state=latest
+  when: yum_update
+
+- name: yum | Setup repos
+  copy: dest=/etc/yum.repos.d/{{item.key}}.repo content="{{item.value}}"
+  with_dict: yum_repos
+
+- name: yum | Install packages
+  yum: name={{item.name|default(item)}} enablerepo={{item.enablerepo|default(None)}} disablerepo={{item.disablerepo|default(None)}}
+  with_items: yum_packages
+
+- name: yum | Enable services
+  service: name={{item}} state=started enabled=yes
+  with_items: yum_services
