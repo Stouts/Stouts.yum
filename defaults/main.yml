@@ -1,6 +1,7 @@
 ---
 
 yum_enabled: yes
+yum_default_packages: [ "@Development tools", ncurses, ncurses-devel ]
 yum_packages: []
 yum_repos: {}
 yum_services: []
